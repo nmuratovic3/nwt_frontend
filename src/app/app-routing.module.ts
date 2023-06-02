@@ -6,13 +6,15 @@ import { ProductComponent } from './components/product/product.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { CartComponent } from './components/cart/cart.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CreateProductComponent } from './components/create-product/create-product.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'product', component: ProductComponent},
   {path: 'history', component: OrderHistoryComponent},
-  {path: 'cart', component: CartComponent}
+  {path: 'cart', component: CartComponent},
+  {path: 'create-product', component: CreateProductComponent}
 ];
 
 @NgModule({

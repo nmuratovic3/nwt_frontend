@@ -11,6 +11,7 @@ import { OrderHistoryComponent } from './components/order-history/order-history.
 import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CreateProductComponent } from './components/create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     OrderHistoryComponent,
     UserComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    CreateProductComponent
   ],
   imports: [
     BrowserModule,
