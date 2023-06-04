@@ -1,7 +1,8 @@
 <section style="background-color: #eee;">
   <div class="text-center container py-5">
     
-    <div class="row">
+    <div class="row" *ngFor="let product of shoeList">
+
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card">
           <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
