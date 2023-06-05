@@ -9,4 +9,7 @@ export class ProductService{
    getProductList(): Observable<Product[]>{
     return this.httpClient.get<Product[]>('');//url za getanje produkta
    }
+   addProduct(product: Product): Observable<any> {
+    return this.httpClient.post('', product); //url za kreiranje produkta
+  }
 }

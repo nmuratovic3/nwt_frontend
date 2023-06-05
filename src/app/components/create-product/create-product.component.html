@@ -4,10 +4,10 @@
            
             <div class="card">
                
-                <form class="form-card" onsubmit="event.preventDefault()">
+                <form class="form-card" (ngSubmit)="onSubmit()" *ngFor="let state of product.states">
                     <p class="naziv">Create product</p>
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Name<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname"  > </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Name<span class="text-danger"> *</span></label> <input type="text" [(ngModel)]="product.name" name="name" > </div>
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Gender<span class="text-danger"> *</span></label>
                          <select id="size" name="size" class="form-control">
                             <option value="">Select gender</option>
@@ -17,11 +17,11 @@
                           </select> </div>
                     </div>
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Structure<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="" > </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Color<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="" > </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Material<span class="text-danger"> *</span></label> <input type="text" [(ngModel)]="product.material" name="material" > </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Color<span class="text-danger"> *</span></label> <input type="text" [(ngModel)]="product.color" name="color"> </div>
                     </div>
                     <div class="row justify-content-between text-left">
-                        <p class="naziv">Create state</p>
+                        <p class="naziv" >Create state</p>
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Size<span class="text-danger"> *</span></label> 
                             <select id="size" name="size" class="form-control">
                                 <option value="">Select size</option>
@@ -29,10 +29,10 @@
                                 <option value="37">37</option>
                                 <option value="38">38</option>
                               </select> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Price<span class="text-danger"> *</span></label> <input type="number" id="mob" name="mob" placeholder="BAM" > </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Price<span class="text-danger"> *</span></label> <input type="number" [(ngModel)]="state.price" name="price" placeholder="BAM" > </div>
                     </div>
                     <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Percent of sale<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="" > </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Percent of sale<span class="text-danger"> *</span></label> <input type="number" [(ngModel)]="state.percent" name="percent" placeholder="" > </div>
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Choose category<span class="text-danger"> *</span></label> 
                             <select id="size" name="size" class="form-control">
                                 <option value="">Select category</option>

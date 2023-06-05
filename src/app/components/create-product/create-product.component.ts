@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/productService';
+import { Product } from 'src/app/models/product';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-create-product',
@@ -7,10 +9,30 @@ import { ProductService } from 'src/app/services/productService';
   styleUrls: ['./create-product.component.css']
 })
 export class CreateProductComponent implements OnInit {
-  constructor (private productService: ProductService){}
+  productForm!: FormGroup;
+  gender: string[]=['male', 'female', 'kids']
+  product!: Product;
 
-  ngOnInit():void{
+  constructor (private productService: ProductService, private formBuilder: FormBuilder){}
 
+  onSubmit(){
+    const product: Product = this.productForm.value;
+    this.productService.addProduct(product).subscribe(
+      (response) =>{
+      console.log("Proizvod je dodan");
+      },
+      (error)=>{
+        console.error("Doslo je do greske", error)
+      }
+    )
+  }
+  ngOnInit(){
+      this.productForm = this.formBuilder.group({
+        name: '',
+        color: '',
+        material: '',
+        state: []
+      })
 
   }
 
