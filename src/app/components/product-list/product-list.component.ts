@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Product } from 'src/app/models/product';
+import { ProductService } from 'src/app/services/productService';
 
 @Component({
   selector: 'app-product-list',
@@ -7,16 +10,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  shoeList: any;
-  constructor(private httpClient: HttpClient){
-    this.shoeList=[];
+  shoeList!: Product[];
+
+  constructor(private productService: ProductService){
+   
   }
  ngOnInit(): void{
-  this.getProductList()
+  this.productService.getProductList().subscribe((data)=>{
+    this.shoeList=data
+  })
  }
- getProductList(){
-  this.httpClient.get('').subscribe((result: any)=>{
-  this.shoeList=result //Staviti API
-})
- }
+
 }
