@@ -16,7 +16,8 @@ const routes: Routes = [
   {path: 'history', component: OrderHistoryComponent},
   {path: 'cart', component: CartComponent},
   {path: 'create-product', component: CreateProductComponent},
-  {path: 'user-profile', component: ProfileComponent}
+  {path: 'user-profile', component: ProfileComponent},
+  {path: 'navbar', component: NavbarComponent}
 ];
 
 @NgModule({

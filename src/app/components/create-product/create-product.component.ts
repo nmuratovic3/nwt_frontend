@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/productService';
 import { Product } from 'src/app/models/product';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-create-product',
@@ -10,8 +10,8 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 })
 export class CreateProductComponent implements OnInit {
   productForm!: FormGroup;
-  gender: string[]=['male', 'female', 'kids']
   product!: Product;
+
 
   constructor (private productService: ProductService, private formBuilder: FormBuilder){}
 
@@ -26,12 +26,27 @@ export class CreateProductComponent implements OnInit {
       }
     )
   }
+  get states(): FormArray {
+    return this.productForm.get('states') as FormArray;
+  }
+
+  addState() {
+    const stateFormGroup = this.formBuilder.group({
+      size: '',
+      price: '',
+      percent: ''
+    });
+  
+    this.states.push(stateFormGroup);
+  }
   ngOnInit(){
       this.productForm = this.formBuilder.group({
         name: '',
         color: '',
         material: '',
-        state: []
+        gender: [''],
+        states: this.formBuilder.array([]),
+        category: []
       })
 
   }

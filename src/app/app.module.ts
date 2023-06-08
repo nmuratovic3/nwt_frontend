@@ -16,7 +16,6 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
-    HttpClientModule,
     AppComponent,
     ProductComponent,
     HeaderComponent,
@@ -31,7 +30,9 @@ import { ProfileComponent } from './components/profile/profile.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
