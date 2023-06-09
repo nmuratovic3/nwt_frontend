@@ -8,6 +8,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { OrderDialogComponent } from './components/order-dialog/order-dialog.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent},
   {path: 'create-product', component: CreateProductComponent},
   {path: 'user-profile', component: ProfileComponent},
-  {path: 'navbar', component: NavbarComponent}
+  {path: 'navbar', component: NavbarComponent},
+  {path: 'finish-order', component: OrderDialogComponent},
+  {path: 'reservation', component: ReservationComponent}
 ];
 
 @NgModule({

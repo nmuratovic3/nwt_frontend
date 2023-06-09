@@ -13,6 +13,8 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CreateProductComponent } from './components/create-product/create-product.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { OrderDialogComponent } from './components/order-dialog/order-dialog.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     LoginComponent,
     NavbarComponent,
     CreateProductComponent,
-    ProfileComponent
+    ProfileComponent,
+    OrderDialogComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
