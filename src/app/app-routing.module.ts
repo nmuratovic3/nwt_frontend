@@ -10,6 +10,7 @@ import { CreateProductComponent } from './components/create-product/create-produ
 import { ProfileComponent } from './components/profile/profile.component';
 import { OrderDialogComponent } from './components/order-dialog/order-dialog.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import { ListOrdersComponent } from './components/list-orders/list-orders.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'user-profile', component: ProfileComponent},
   {path: 'navbar', component: NavbarComponent},
   {path: 'finish-order', component: OrderDialogComponent},
-  {path: 'reservation', component: ReservationComponent}
+  {path: 'reservation', component: ReservationComponent},
+  {path: 'orders', component:ListOrdersComponent}
 ];
 
 @NgModule({

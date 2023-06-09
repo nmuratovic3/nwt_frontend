@@ -15,6 +15,7 @@ import { CreateProductComponent } from './components/create-product/create-produ
 import { ProfileComponent } from './components/profile/profile.component';
 import { OrderDialogComponent } from './components/order-dialog/order-dialog.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import { ListOrdersComponent } from './components/list-orders/list-orders.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     CreateProductComponent,
     ProfileComponent,
     OrderDialogComponent,
-    ReservationComponent
+    ReservationComponent,
+    ListOrdersComponent
   ],
   imports: [
     BrowserModule,
