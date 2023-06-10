@@ -63,10 +63,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "nwt:build:production"
+              "browserTarget": "nwt:build:production",
+              "proxyConfig": "src/proxy.conf.json"
             },
             "development": {
-              "browserTarget": "nwt:build:development"
+              "browserTarget": "nwt:build:development",
+              "proxyConfig": "src/proxy.conf.json"
+
             }
           },
           "defaultConfiguration": "development"
@@ -96,6 +99,7 @@
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": []
+            
           }
         }
       }
