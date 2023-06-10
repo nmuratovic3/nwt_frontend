@@ -2,15 +2,14 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-
-
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-create-profile',
+  templateUrl: './create-profile.component.html',
+  styleUrls: ['./create-profile.component.css']
 })
-export class ProfileComponent {
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
+export class CreateProfileComponent {
+
+   constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
 
   profileForm!: FormGroup;
 
@@ -28,7 +27,4 @@ export class ProfileComponent {
     const profileData = this.profileForm.value;
   
   }
-  
-
-  
 }

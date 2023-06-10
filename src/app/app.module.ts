@@ -17,6 +17,7 @@ import { OrderDialogComponent } from './components/order-dialog/order-dialog.com
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { ListOrdersComponent } from './components/list-orders/list-orders.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProfileComponent,
     OrderDialogComponent,
     ReservationComponent,
-    ListOrdersComponent
+    ListOrdersComponent,
+    CreateProfileComponent
   ],
   imports: [
     BrowserModule,

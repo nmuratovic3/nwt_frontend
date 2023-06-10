@@ -21,6 +21,7 @@ export class LoginComponent {
   
 
   submitForm() {
+    console.log(this.loginForm.value.email)
     if (this.loginForm.valid) {
       const formData = this.loginForm.value;
   
