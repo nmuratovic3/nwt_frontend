@@ -16,10 +16,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { OrderDialogComponent } from './components/order-dialog/order-dialog.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { ListOrdersComponent } from './components/list-orders/list-orders.component';
-import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
 
 @NgModule({
   declarations: [
@@ -42,8 +39,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule,
     ReactiveFormsModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

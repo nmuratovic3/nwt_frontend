@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { userService } from '../services/userService';
-import { FormControl } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -9,12 +10,26 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  constructor(private http: HttpClient, private formBuilder: FormBuilder,private userService: userService) { }
+  loginForm!: FormGroup;
 
-  constructor(private userService: userService) {
-
+  
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
   }
   login() {
-    this.userService.login("kapomuharem+1@gmail.com", "Password123!")
+    if (this.loginForm.valid) {
+      const formData = this.loginForm.value;
+      console.log(this.loginForm)
+      this.userService.login(this.loginForm.value)
+    }
+    
   }
+  
 
+  submitForm() {
+  }
 }

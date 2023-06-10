@@ -8,8 +8,8 @@ export class userService {
     constructor(private http: HttpClient) {
 
     }
-    public login(email: string, password: string ) {
-        return this.http.post('http://localhost:8080/user/auth/login', {email:email, password:password}).subscribe
+    public login(body: any ) {
+        return this.http.post('http://localhost:8080/user/auth/login',body ).subscribe
         (result => {
             let value=''
             if(result.hasOwnProperty('token')){
