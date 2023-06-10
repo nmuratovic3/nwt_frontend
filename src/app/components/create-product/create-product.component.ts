@@ -26,19 +26,19 @@ export class CreateProductComponent implements OnInit {
       }
     )
   }
-  get states(): FormArray {
-    return this.productForm.get('states') as FormArray;
-  }
+  // get states(): FormArray {
+  //   return this.productForm.get('states') as FormArray;
+  // }
 
-  addState() {
-    const stateFormGroup = this.formBuilder.group({
-      size: '',
-      price: '',
-      percent: ''
-    });
+  // addState() {
+  //   const stateFormGroup = this.formBuilder.group({
+  //     size: '',
+  //     price: '',
+  //     percent: ''
+  //   });
   
-    this.states.push(stateFormGroup);
-  }
+  //   this.states.push(stateFormGroup);
+  // }
   ngOnInit(){
       this.productForm = this.formBuilder.group({
         name: '',

@@ -5,7 +5,8 @@ id: number;
 name: string;
 color: string;
 material: string;
-gender: string;
+spol: string;
 states: State[];
 category: Category;
+price:number;
 }

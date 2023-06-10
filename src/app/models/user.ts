@@ -1,10 +1,8 @@
 export interface User{
     id: string;
-    naziv: string;
+    name: string;
     email: string;
     address: string;
-    role_id: string;
-    orderNumber: number;
+    roles: object;
     phoneNumber: string;
-
 }

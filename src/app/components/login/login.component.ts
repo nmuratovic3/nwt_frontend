@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { userService } from '../services/userService';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private http: HttpClient, private formBuilder: FormBuilder,private userService: userService) { }
+  constructor(private http: HttpClient, private formBuilder: FormBuilder,private userService: userService, private router:Router) { }
   loginForm!: FormGroup;
   
   ngOnInit() {
@@ -21,14 +22,9 @@ export class LoginComponent {
   }
   login() {
     if (this.loginForm.valid) {
-      const formData = this.loginForm.value;
-      console.log(this.loginForm)
-      this.userService.login(this.loginForm.value)
-    }
-    
+     this.userService.login(this.loginForm.value)
+     this.router.navigate(['']);  
+    } 
   }
-  
-
-  submitForm() {
-  }
+  submitForm() {}
 }

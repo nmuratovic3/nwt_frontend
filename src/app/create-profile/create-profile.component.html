@@ -1,45 +1,56 @@
-<div class="container rounded  mt-5 mb-5" style="background-color: #eee;">
-    <div class="row ">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
-        </div>
-        <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Profile Settings</h4>
-                </div>
-                <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
-                    <div class="row mt-2">
-                      <div class="col-md-6">
-                        <label class="labels">Full Name</label>
-                        <input type="text" class="form-control" formControlName="fullName" placeholder="first name">
-                      </div>
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-md-12">
-                        <label class="labels">Mobile Number</label>
-                        <input type="text" class="form-control" formControlName="mobileNumber" placeholder="enter phone number">
-                      </div>
-                      <div class="col-md-12">
-                        <label class="labels">Address</label>
-                        <input type="text" class="form-control" formControlName="address" placeholder="enter address line 1">
-                      </div>
-                      <div class="col-md-12">
-                        <label class="labels">Email</label>
-                        <input type="text" class="form-control" formControlName="email" placeholder="enter address line 2">
-                      </div>
-                      <div class="col-md-12">
-                        <label class="labels">Postcode</label>
-                        <input type="text" class="form-control" formControlName="postcode" placeholder="enter address line 2">
-                      </div>
-                    </div>
-                    <div class="mt-5 text-center">
-                      <button class="btn btn-primary profile-button" type="submit" [disabled]="profileForm.invalid">Save Profile</button>
-                    </div>
-                  </form>
-                  
+<section class="vh-100" style="background-color: #a4a4a4;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="https://i.pinimg.com/564x/91/8c/24/918c247480ae0abae0d638549aa2aedc.jpg" alt="login form"
+                class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
             </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <img src="https://www.freeiconspng.com/thumbs/running-icon/running-shoe-icon-31.png"
+                      style="width: 60px; height: 60px; margin-right: 20px;">
+                    <span class="h1 fw-bold mb-0">Shoe Shop</span>
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create your account</h5>
+                  <div class="row mt-3">
+                    <div class="col-md-12 mt-1">
+                      <input type="text" class="form-control" formControlName="name">
+                      <label class="labels">Full Name</label>
+                    </div>
+                    <div class="col-md-12 mt-1">
+                      <input type="text" class="form-control" formControlName="email">
+                      <label class="labels">Email</label>
+                    </div>
+                    <div class="col-md-12 mt-1">
+                      <input type="password" class="form-control" formControlName="password">
+                      <label class="labels">Password</label>
+                    </div>
+                    <div class="col-md-12 mt-1">
+                      <input type="text" class="form-control" formControlName="phoneNumber">
+                      <label class="labels">Phone Number</label>
+                    </div>
+                    <div class="col-md-12 mt-1">
+                      <input type="text" class="form-control" formControlName="address">
+                      <label class="labels">Address</label>
+                    </div>
+                  </div>
+                  <div class="mt-5 text-center">
+                    <button class="btn btn-dark btn-lg btn-block" type="submit" [disabled]="profileForm.invalid"
+                      (click)="register()">Register</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-       
+      </div>
     </div>
-</div>
+  </div>
+</section>

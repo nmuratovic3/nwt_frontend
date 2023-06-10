@@ -11,10 +11,14 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { OrderDialogComponent } from './components/order-dialog/order-dialog.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { ListOrdersComponent } from './components/list-orders/list-orders.component';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'products', component: ProductListComponent},
+  {path: 'products/kids', component: ProductListComponent},
+  {path: 'products/female', component: ProductListComponent},
+  {path: 'products/male', component: ProductListComponent},
   {path: 'product', component: ProductComponent},
   {path: 'history', component: OrderHistoryComponent},
   {path: 'cart', component: CartComponent},
@@ -23,7 +27,10 @@ const routes: Routes = [
   {path: 'navbar', component: NavbarComponent},
   {path: 'finish-order', component: OrderDialogComponent},
   {path: 'reservation', component: ReservationComponent},
-  {path: 'orders', component:ListOrdersComponent}
+  {path: 'orders', component:ListOrdersComponent},
+  {path: 'register', component:CreateProfileComponent}
+
+
 ];
 
 @NgModule({
