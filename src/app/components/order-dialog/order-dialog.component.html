@@ -1,16 +1,65 @@
-
-<body>
-  <div class="container-fluid bg-light">
-    <div class="row d-flex justify-content-center align-items-center mt-5">
-      <div class="col-md-6">
-        <form>
-          <div class="mb-4">
-            <label for="inputLabel" class="form-label">Unesite adresu za narudzbu:</label>
-            <input type="text" class="form-control" id="inputLabel">
+<div class="container">
+  <div class="row mt-5">
+    <div class="col w-75">
+      <div class="mb-4">
+        <div class="row justify-content-center mb-3">
+          <div class="col-md-12 col-xl-10">
+            <h3>Products:</h3>
+            <div *ngFor="let product of productsInCart">
+              <div class="card shadow-0 border rounded-3 mt-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                      <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                        <img src="{{product.photo}}" class="w-100" />
+                        <a href="#!">
+                          <div class="hover-overlay">
+                            <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-6">
+                      <h6>{{product?.name}}</h6>
+                      <div>
+                        <p>Category: </p>
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                      <div class="d-flex flex-row align-items-center mb-1">
+                        <h6 class="mb-1 me-1">{{product.price}}.00 BAM</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <button type="submit" class="btn btn-secondary">Zavrsi narudzbu</button>
-        </form>
+        </div>
+        <hr>
+      </div>
+    </div>
+    <div class="col w-25 ">
+      <div class="mb-4">
+        <h3>Order info:</h3>
+        <hr>
+        <h4>Full name:</h4>
+        <span>{{curentUser?.name}}</span>
+        <hr>
+        <h4>Email address:</h4>
+        <span> {{curentUser?.email}}</span>
+        <hr>
+        <h4>Phone number:</h4>
+        <span> {{curentUser?.phoneNumber}}</span>
+        <hr>
+        <h4>Address:</h4>
+        <span>{{curentUser?.address}}</span>
+        <hr>
+        <div class="col" style="float:right">
+          <h3>Total price: {{totalPrice}}.00 BAM</h3>
+          <button type="submit" class="btn btn-outline-dark btn-lg" style="float:right" (click)="finishOrder()">Create order</button>
+        </div>
       </div>
     </div>
   </div>
-</body>
+</div>

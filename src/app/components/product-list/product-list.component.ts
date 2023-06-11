@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product';
+import { CartService } from 'src/app/services/CartService';
 import { ProductService } from 'src/app/services/ProductService';
 
 @Component({
@@ -14,7 +15,7 @@ export class ProductListComponent implements OnInit {
   shoeList: Product[]=[];
   lista: Product[]
 
-  constructor(private productService: ProductService, private router: Router) {
+  constructor(private productService: ProductService, private router: Router, private cartService:CartService) {
 
   }
   ngOnInit() {
@@ -45,6 +46,13 @@ export class ProductListComponent implements OnInit {
         }
     })
     console.log(this.shoeList)
+  }
+  async addToCart(productId:number){
+    let cartId=""
+    await this.cartService.getCartInfo().subscribe(data=>{
+      cartId=data.id;
+    })
+    this.cartService.addToCart(productId.toString(),cartId).subscribe()
   }
 
 }

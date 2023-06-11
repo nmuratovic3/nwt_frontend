@@ -27,12 +27,24 @@ export class CartService {
 
     let productForCart={
       productId:productId,
-      quantit:1
+      quantit:"1"
     }
     return this.httpClient.post('http://localhost:8080/user/cart/'+email, productForCart, { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token }) });
   }
   removeFromCart(id:string){
     let token = localStorage.getItem('token');
     return this.httpClient.delete('http://localhost:8080/user/cart/cart-products/'+id, { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token }) });
+  }
+  finishOrder(userId:string, address:string, cartId:number){
+    let token = localStorage.getItem('token');
+    let order={
+      address : address,
+      city: "city",
+      zipCode: "zipcode",
+      userId: userId,
+      cartId: cartId
+    }
+    console.log(order)
+    return this.httpClient.post('http://localhost:8080/order', order, { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token }) });
   }
 }
