@@ -31,9 +31,9 @@ export class CartService {
     }
     return this.httpClient.post('http://localhost:8080/user/cart/'+email, productForCart, { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token }) });
   }
-  removeFromCart(id:string){
+  removeFromCart(id:Number){
     let token = localStorage.getItem('token');
-    return this.httpClient.delete('http://localhost:8080/user/cart/cart-products/'+id, { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token }) });
+    return this.httpClient.delete('http://localhost:8080/user/cart/cart-product/'+id, { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token }) });
   }
   finishOrder(userId:string, address:string, cartId:number){
     let token = localStorage.getItem('token');
@@ -46,5 +46,10 @@ export class CartService {
     }
     console.log(order)
     return this.httpClient.post('http://localhost:8080/order', order, { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token }) });
+  }
+  getCartProductId(){
+    let token = localStorage.getItem('token');
+    let email=localStorage.getItem('userEmail')
+    return this.httpClient.get<any>('http://localhost:8080/user/cart/cart-product/'+email, { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token }) });
   }
 }

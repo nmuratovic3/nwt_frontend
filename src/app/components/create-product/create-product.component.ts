@@ -48,7 +48,7 @@ export class CreateProductComponent implements OnInit {
         price:[],
         sastav: [''],
         spol: [''],
-        category: [{}],
+        category: [],
         photo:[''],
         state:[[]]
       })
@@ -62,10 +62,11 @@ export class CreateProductComponent implements OnInit {
     let newproduct=this.productForm.value;
     this.productService.getCategoryById(this.productForm.value.category).subscribe(data=>{
       console.log(data);
-      newproduct.category=data;
+      this.productForm.value.category=data;
+      this.productForm.patchValue({category: data})
     })
-    console.log(newproduct)
-    this.productService.addProduct(newproduct).subscribe(value=>
+    console.log(this.productForm.value)
+    this.productService.addProduct(this.productForm.value).subscribe(value=>
       console.log(value));
   }
 
