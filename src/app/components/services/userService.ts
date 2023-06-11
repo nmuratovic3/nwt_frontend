@@ -38,6 +38,8 @@ export class userService {
                     let value = x[1];
                     if (key == 'email') {
                         localStorage.setItem('userEmail', value)
+                    }else if(key == 'authorities'){
+                        localStorage.setItem('role',value[0].authority)
                     }
                 })
             })

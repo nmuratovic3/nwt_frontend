@@ -4,9 +4,10 @@ export interface Product{
 id: number;
 name: string;
 color: string;
-material: string;
+sastav: string;
 spol: string;
 states: State[];
 category: Category;
 price:number;
+photo:string;
 }

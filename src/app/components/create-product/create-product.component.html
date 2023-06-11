@@ -1,51 +1,61 @@
-<div class="container-fluid px-1 py-5 mx-auto">
-    <div class="row d-flex justify-content-center">
-        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-           
-            <div class="card">
-               
-                <form class="form-card" (ngSubmit)="onSubmit()" *ngFor="let state of product.states">
-                    <p class="naziv">Create product</p>
-                    <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Name<span class="text-danger"> *</span></label> <input type="text" formControlName="name" id="name" name="name" > </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label for="gender" class="form-control-label px-3">Gender<span class="text-danger"> *</span></label>
-                         <select id="gender" name="gender" class="form-control" formControlName="gender">
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="kids">Kids</option>
-                          </select> </div>
-                    </div>
-                    <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Material<span class="text-danger"> *</span></label> <input type="text" id="material" formControlname="material" name="material" > </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Color<span class="text-danger"> *</span></label> <input type="text" formControlName="color" id="color" name="color"> </div>
-                    </div>
-                    <div class="row justify-content-between text-left" >
-                        <p class="naziv" >Create state</p>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Size<span class="text-danger"> *</span></label> 
-                            <select id="size" name="size" class="form-control">
-                                <option value="">Select size</option>
-                                <option value="36">36</option>
-                                <option value="37">37</option>
-                                <option value="38">38</option>
-                              </select> </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Price<span class="text-danger"> *</span></label> <input type="number" name="price" placeholder="BAM" > </div>
-                    </div>
-                    <div class="row justify-content-between text-left">
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Percent of sale<span class="text-danger"> *</span></label> <input type="number"  name="percent" placeholder="" > </div>
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Choose category<span class="text-danger"> *</span></label> 
-                            <select id="size" name="size" class="form-control">
-                                <option value="">Select category</option>
-                                <option value="male">Sandals</option>
-                                <option value="female">Elegant shoes</option>
-                              </select> 
-                            </div>     
-                    </div>
-                  
-                    <div class="row justify-content-center">
-                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Submit</button> </div>
-                    </div>
-                </form>
+<section style="background-color: #eee;">
+    <div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                <div class="card"> 
+                    <form class="form-card"  [formGroup]="productForm">
+                        <h3>Create product</h3>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">Name<span class="text-danger"> *</span></label>
+                                <input type="text" formControlName="name" id="name" name="name">
+                            </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label for="spol"
+                                    class="form-control-label px-3">Gender<span class="text-danger"> *</span></label>
+                                <select id="gender" name="gender" class="form-control" formControlName="spol">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="kids">Kids</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">Material<span class="text-danger"> *</span></label>
+                                <input type="text" formControlName="sastav" id="material" name="material">
+                            </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">Color<span class="text-danger"> *</span></label>
+                                <input type="text" formControlName="color" id="color" name="color">
+                            </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <label class="form-control-label px-3">Photo<span class="text-danger"> *</span></label>
+                            <input type="text" id="photo" formControlName="photo" name="photo">
+                        </div>
+
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">Price<span class="text-danger"> *</span></label>
+                                <input type="number" name="price" formControlName="price" placeholder="BAM">
+                            </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label
+                                    class="form-control-label px-3">Choose category<span class="text-danger">
+                                        *</span></label>
+                                <select id="size" name="size" class="form-control" formControlName="category">
+                                    <option value="">Select category</option>
+                                    <option *ngFor="let category of categories" [value]="category.id">{{ category.naziv }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="form-group col-sm-6"> <button type="submit"
+                                    class="btn-block btn btn-dark" (click)="submit()">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>

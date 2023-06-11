@@ -1,0 +1,16 @@
+.card{
+    transition: all 0.3s;
+    /* width: 375px; */
+    border-radius: 2%;
+    border: solid 0.1px lightgrey;
+    padding: 2%;
+    background-color: white;
+    margin-right: 10px;
+}
+
+.card:hover{
+    transform: scale(1.10);
+}
+a{
+    text-decoration: none;
+}

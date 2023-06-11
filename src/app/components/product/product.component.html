@@ -1,66 +1,70 @@
 <section style="background-color: #eee;">
-    <div class="container py-5">
-      <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6 col-xl-4">
-          <div class="card position-relative" style="border-radius: 15px;">
-            <a href="#" class="position-absolute top-0 start-0 p-3 text-decoration-none text-dark">
-              <i class="fas fa-times"></i>
+  <div class="container py-4 justify-content-center">
+    <div class="row justify-content-center">
+      <div class="w-50 ml-25">
+        <div class="card" style="border-radius: 15px;">
+          <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
+            <img src="{{product?.photo}}" style="border-top-left-radius: 15px; border-top-right-radius: 15px;"
+              class="img-fluid" alt="Laptop" />
+            <a href="#!">
+              <div class="mask"></div>
             </a>
-            <div class="bg-image hover-overlay ripple ripple-surface ripple-surface-light"
-              data-mdb-ripple-color="light">
-              <img src="https://snaggles2travel.co.uk/gsite/qazxsw/fladon_b/79388-cl-kineske-pranje-zenske-sandale-na-petu-jodie.jpg"
-                style="border-top-left-radius: 15px; border-top-right-radius: 15px;" class="img-fluid"
-                alt="Laptop" />
-              <a href="#!">
-                <div class="mask"></div>
-              </a>
-            </div>
-            <div class="card-body pb-0">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <p><a href="#!" class="text-dark">Product name</a></p>
-                  <p class="small text-muted">Category</p>
+          </div>
+          <div class="card-body pb-0">
+            <div class="d-flex justify-content-between">
+              <div>
+                <h4>{{product?.name}}</h4>
+                <p class="small text-muted">Category</p>
+              </div>
+              <div>
+                <div class="d-flex flex-row justify-content-end mt-1 mb-4 text-danger">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
                 </div>
-                <div>
-                  <div class="d-flex flex-row justify-content-end mt-1 mb-4 text-danger">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <p class="small text-muted">Color: brown</p>
-                </div>
+                <p class="small text-muted">Color: {{product?.color}}</p>
               </div>
             </div>
-            <hr class="my-0" />
-            <div class="card-body pb-0">
-              <div class="d-flex justify-content-between">
-                <p><a href="#!" class="text-dark">Product price</a></p>
-                <p class="small text-muted">Composition: leather</p>
-              </div>
-              <div class="row justify-content-end">
-                <div class="col-md-6">
-                  <div class="mb-3">
-                    <select class="form-select" id="shoeSize">
-                      <option selected disabled>Choose size</option>
-                      <option value="s">S</option>
-                      <option value="m">M</option>
-                      <option value="l">L</option>
-                    </select>
-                  </div>
+          </div>
+          <hr class="my-0" />
+          <div class="card-body pb-0">
+            <div class="d-flex justify-content-between">
+              <h4>{{product?.price}}.00 BAM</h4>
+              <p class="small text-muted">Composition: {{product?.sastav}}</p>
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <select class="form-select" id="shoeSize">
+                    <option selected disabled>Choose size</option>
+                    <option value="s">S</option>
+                    <option value="m">M</option>
+                    <option value="l">L</option>
+                  </select>
                 </div>
               </div>
             </div>
-            <hr class="my-0" />
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
-                <i class="fas fa-trash"></i>
-                <button type="button" class="btn btn-secondary">Make a reservation</button>
-                <button type="button" class="btn btn-primary">Add to cart</button>
+          </div>
+          <hr class="my-0" />
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center pb-2 mb-1">
+              <div class="float-left">
+              <i class="fas fa-trash"></i>
+              <button type="button" class="btn btn-secondary" style="margin-left: 5px;">Make a reservation</button>
+              </div>
+              <div class="float-right">
+                <button class="btn btn-dark" style="margin-right: 5px;" (click)="addToCart()"><svg xmlns="http://www.w3.org/2000/svg"
+                    width="16" height="16" fill="currentColor" className="bi bi-cart mr-1" viewBox="0 0 16 16">
+                    <path
+                      d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                  </svg> Add to cart</button>
+                <button class="btn btn-dark">Buy now</button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

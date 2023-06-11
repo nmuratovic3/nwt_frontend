@@ -11,20 +11,18 @@
 
       </div>
     </form>
-    <form class="form-inline my-2 my-lg-0">
-      <a class="nav-item active history">Reservation</a>
-      <a class="nav-item active history" routerLink="/cart">Cart</a>
-      <a class="nav-item active history">Wishlist</a>
-      <a class="nav-item active history" routerLink="/history">Order history</a>
-        <button routerLink="/login" class="btn btn-dark" style="margin-right: 5px;"*ngIf="showButtons">Login</button>
-        <button routerLink="/register" class="btn btn-dark"*ngIf="showButtons">Register</button>
-        <span>{{user.name}}</span>
-        <a class="navbar-brand" routerLink="/user-profile" *ngIf="!showButtons">
-          <img src="https://static.thenounproject.com/png/3492499-200.png" alt="Logo" width="40" height="35"
-            class="d-inline-block align-text-top">
-        </a>
-        <button class="btn btn-primary"*ngIf="!showButtons" (click)="logout()">Logout</button>
-    </form>
+      <a class="nav-link">Reservation</a>
+      <a class="nav-link" routerLink="/cart">Cart</a>
+      <a class="nav-link">Wishlist</a>
+      <a class="nav-link" routerLink="/history">Order history</a>
+      <button routerLink="/login" class="btn btn-dark" style="margin-right: 5px;" *ngIf="showButtons">Login</button>
+      <button routerLink="/register" class="btn btn-dark" *ngIf="showButtons">Register</button>
+      <span>{{user?.name}}</span>
+      <a class="navbar-brand" routerLink="/user-profile" *ngIf="!showButtons">
+        <img src="https://static.thenounproject.com/png/3492499-200.png" alt="Logo" width="40" height="35"
+          class="d-inline-block align-text-top">
+      </a>
+      <button class="btn btn-primary" *ngIf="!showButtons" (click)="logout()">Logout</button>
   </div>
 </nav>
 

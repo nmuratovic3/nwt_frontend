@@ -1,5 +1,6 @@
 <section style="background-color: #eee;">
-    <div class="container py-5">
+  <div class="container py-5">
+    <div *ngFor="let product of productsInCart">
       <div class="row justify-content-center mb-3">
         <div class="col-md-12 col-xl-10">
           <div class="card shadow-0 border rounded-3">
@@ -7,8 +8,7 @@
               <div class="row">
                 <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                   <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                    <img src="https://snaggles2travel.co.uk/gsite/qazxsw/fladon_b/79388-cl-kineske-pranje-zenske-sandale-na-petu-jodie.jpg"
-                    class="w-100" />
+                    <img src="{{product.photo}}" class="w-100" />
                     <a href="#!">
                       <div class="hover-overlay">
                         <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
@@ -17,117 +17,37 @@
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-6">
-                  <h4>Product name</h4>
-                  <div><p>Category: </p></div>
+                  <h4>{{product?.name}}</h4>
+                  <div>
+                    <p>Category: </p>
+                  </div>
 
                   <h4>Size: </h4>
-                <div><p>Sale: </p></div>
-                  
-                
+                  <div>
+                    <p>Sale: </p>
+                  </div>
                 </div>
                 <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
-                    <div class="d-flex flex-row align-items-center mb-1">
-                      <h4 class="mb-1 me-1">$13.99</h4>
-                    </div>
-                    <div class="d-flex flex-column mt-4">
-                      <button class="btn btn-primary btn-sm" type="button">Details</button>
-                      <button class="btn btn-outline-primary btn-sm mt-2" type="button" >
-                        Buy
-                      </button>
-                    </div>
+                  <div class="d-flex flex-row align-items-center mb-1">
+                    <h4 class="mb-1 me-1">{{product.price}}.00 BAM</h4>
                   </div>
-              
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-  
-      <div class="row justify-content-center mb-3">
-        <div class="col-md-12 col-xl-10">
-          <div class="card shadow-0 border rounded-3">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
-                  <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                    <img src="https://snaggles2travel.co.uk/gsite/qazxsw/fladon_b/79388-cl-kineske-pranje-zenske-sandale-na-petu-jodie.jpg"
-                    class="w-100" />
-                    <a href="#!">
-                      <div class="hover-overlay">
-                        <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
-                      </div>
-                    </a>
+                  <div class="d-flex flex-column mt-2">
+                    <button class="btn btn-outline-dark btn-sm" type="button"
+                      [routerLink]="['/product', product.id]">Details</button>
+                    <button class="btn btn-dark btn-sm mt-2" type="button" (click)="removeFromCart()">Remove from cart</button>
                   </div>
                 </div>
-                <div class="col-md-6 col-lg-6 col-xl-6">
-                  <h4>Product name</h4>
-                  <div><p>Category: </p></div>
-
-                  <h4>Size: </h4>
-                <div><p>Sale: </p></div>
-                  
-                
-                </div>
-                <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
-                    <div class="d-flex flex-row align-items-center mb-1">
-                      <h4 class="mb-1 me-1">$13.99</h4>
-                    </div>
-                    <div class="d-flex flex-column mt-4">
-                      <button class="btn btn-primary btn-sm" type="button">Details</button>
-                      <button class="btn btn-outline-primary btn-sm mt-2" type="button">
-                        Buy
-                      </button>
-                    </div>
-                  </div>
-              
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row justify-content-center mb-3">
-        <div class="col-md-12 col-xl-10">
-          <div class="card shadow-0 border rounded-3">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
-                  <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                    <img src="https://snaggles2travel.co.uk/gsite/qazxsw/fladon_b/79388-cl-kineske-pranje-zenske-sandale-na-petu-jodie.jpg"
-                    class="w-100" />
-                    <a href="#!">
-                      <div class="hover-overlay">
-                        <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-6">
-                  <h4>Product name</h4>
-                  <div><p>Category: </p></div>
-
-                  <h4>Size: </h4>
-                <div><p>Sale: </p></div>
-                  
-                
-                </div>
-                <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
-                    <div class="d-flex flex-row align-items-center mb-1">
-                      <h4 class="mb-1 me-1">$13.99</h4>
-                    </div>
-                    <div class="d-flex flex-column mt-4">
-                      <button class="btn btn-primary btn-sm" type="button">Details</button>
-                      <button class="btn btn-outline-primary btn-sm mt-2" type="button" >
-                        Buy
-                      </button>
-                    </div>
-                  </div>
-              
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+
+    <hr>
+    <div class="col" style="float:right">
+      <h3>Total price: {{totalPrice}}.00 BAM</h3>
+      <button class="btn btn-outline-dark btn-lg float-sm" style="float:right">Procede to checkout</button>
+    </div>
+  </div>
+</section>

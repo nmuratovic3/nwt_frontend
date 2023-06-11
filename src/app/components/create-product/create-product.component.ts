@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/ProductService';
 import { Product } from 'src/app/models/product';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { Category } from 'src/app/models/category';
 
 @Component({
   selector: 'app-create-product',
@@ -11,6 +12,7 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 export class CreateProductComponent implements OnInit {
   productForm!: FormGroup;
   product!: Product;
+  categories:Category[]
 
 
   constructor (private productService: ProductService, private formBuilder: FormBuilder){}
@@ -41,14 +43,30 @@ export class CreateProductComponent implements OnInit {
   // }
   ngOnInit(){
       this.productForm = this.formBuilder.group({
-        name: '',
-        color: '',
-        material: '',
-        gender: [''],
-        states: this.formBuilder.array([]),
-        category: []
+        name: [''],
+        color: [''],
+        price:[],
+        sastav: [''],
+        spol: [''],
+        category: [{}],
+        photo:[''],
+        state:[[]]
+      })
+      this.productService.getCategories().subscribe(data=>{
+        console.log(data)
+        this.categories=data
       })
 
+  }
+  submit(){
+    let newproduct=this.productForm.value;
+    this.productService.getCategoryById(this.productForm.value.category).subscribe(data=>{
+      console.log(data);
+      newproduct.category=data;
+    })
+    console.log(newproduct)
+    this.productService.addProduct(newproduct).subscribe(value=>
+      console.log(value));
   }
 
 }

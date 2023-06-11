@@ -11,7 +11,7 @@ import { User } from 'src/app/models/user';
 })
 export class NavbarComponent implements OnInit {
   showButtons: boolean = true;
-  user:User;
+  user:User | null;
   constructor(private userService: userService, private router: Router) { }
 
   ngOnInit(): void {
