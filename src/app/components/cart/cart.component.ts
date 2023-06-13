@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { ProductForCart } from 'src/app/models/productForCart';
 import { CartService } from 'src/app/services/CartService';
 import { ProductService } from 'src/app/services/ProductService';
+import { Location } from '@angular/common';
+
 
 
 @Component({
@@ -15,7 +18,7 @@ export class CartComponent implements OnInit {
   totalPrice:number=0
   productInCart:ProductForCart
 
-  constructor(private cartService: CartService, private productService:ProductService) { }
+  constructor(private cartService: CartService, private productService:ProductService, private router:Router, private location: Location) { }
 
   ngOnInit(): void {
     this.cartService.getCart().subscribe((data: any)=> {
@@ -36,6 +39,9 @@ export class CartComponent implements OnInit {
     this.cartService.getCart().subscribe((data: any)=> {
       this.productInCart=data
     this.cartService.removeFromCart(data[0].id).subscribe();
+    setTimeout(() => {
+      window.location.reload()
+    }, 100); 
     })
     
   }

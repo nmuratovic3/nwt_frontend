@@ -12,6 +12,7 @@ import { OrderDialogComponent } from './components/order-dialog/order-dialog.com
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { ListOrdersComponent } from './components/list-orders/list-orders.component';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -28,7 +29,12 @@ const routes: Routes = [
   {path: 'finish-order', component: OrderDialogComponent},
   {path: 'reservation', component: ReservationComponent},
   {path: 'orders', component:ListOrdersComponent},
-  {path: 'register', component:CreateProfileComponent}
+  {path: 'orders', component:ListOrdersComponent},
+  {path: 'wishlist', component:WishlistComponent},
+  {path: 'register', component:CreateProfileComponent},
+  {path: 'reservations', component:ReservationComponent},
+  
+  
 
 
 ];

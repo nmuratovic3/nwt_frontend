@@ -19,6 +19,7 @@ import { ListOrdersComponent } from './components/list-orders/list-orders.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ModalComponent } from './components/modal/modal.component';
     ReservationComponent,
     ListOrdersComponent,
     CreateProfileComponent,
-    ModalComponent
+    ModalComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,

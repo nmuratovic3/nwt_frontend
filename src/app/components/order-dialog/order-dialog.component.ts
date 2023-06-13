@@ -5,6 +5,8 @@ import { CartService } from 'src/app/services/CartService';
 import { ProductService } from 'src/app/services/ProductService';
 import { Product } from 'src/app/models/product';
 import { Cart } from 'src/app/models/cart';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-order-dialog',
@@ -17,7 +19,7 @@ export class OrderDialogComponent implements OnInit {
   totalPrice:number=0
   cart: Cart
 
-  constructor(private userService: userService, private cartService: CartService, private productService:ProductService){}
+  constructor(private userService: userService, private cartService: CartService, private productService:ProductService, private router:Router, private location: Location){}
   ngOnInit(): void {
     this.userService.getCurrentUser().subscribe(result => {
       this.curentUser = result
@@ -43,5 +45,10 @@ export class OrderDialogComponent implements OnInit {
         console.log(response)
       }
     )
+    setTimeout(() => {
+      this.router.navigate(['/cart'])
+      //window.location.reload()
+    }, 2000);
+     
   }
 }
