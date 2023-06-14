@@ -10,6 +10,7 @@ import { ReservationService } from 'src/app/services/ReservationService';
 import { userService } from '../services/userService';
 import { User } from 'src/app/models/user';
 
+
 declare var window: any;
 
 @Component({
@@ -47,7 +48,6 @@ export class ProductComponent implements OnInit {
     this.cartService.getCartInfo().subscribe(data => {
       cartId = data.id;
     })
-    this.cartService.addToCart(this.productId, cartId).subscribe()
   }
   openModal() {
     console.log(document.getElementById("staticBackdrop"))

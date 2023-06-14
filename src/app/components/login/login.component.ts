@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private http: HttpClient, private formBuilder: FormBuilder,private userService: userService, private router:Router) { }
+  constructor(private http: HttpClient, private formBuilder: FormBuilder, private userService: userService, private router: Router) { }
   loginForm!: FormGroup;
-  
+
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -22,9 +22,11 @@ export class LoginComponent {
   }
   login() {
     if (this.loginForm.valid) {
-     this.userService.login(this.loginForm.value)
-     this.router.navigate(['']);  
-    } 
+      this.userService.login(this.loginForm.value)
+      setTimeout(() => {
+        this.router.navigate(['']);
+      }, 1000);
+    }
   }
-  submitForm() {}
+  submitForm() { }
 }

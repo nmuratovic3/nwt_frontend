@@ -12,6 +12,7 @@ import { User } from 'src/app/models/user';
 export class NavbarComponent implements OnInit {
   showButtons: boolean = true;
   user:User | null;
+  role=localStorage.getItem('role')
   constructor(private userService: userService, private router: Router) { }
 
   ngOnInit(): void {

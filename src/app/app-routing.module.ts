@@ -13,8 +13,10 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { ListOrdersComponent } from './components/list-orders/list-orders.component';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 const routes: Routes = [
+  {path: '', component: ModalComponent},
   {path: 'login', component: LoginComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'products/kids', component: ProductListComponent},

@@ -4,6 +4,7 @@
       <h3>Wishlist:</h3>
     </div>
       <hr>
+      <h3 *ngIf="totalPrice===0" style="text-align: center;">Wishlist is empty</h3>
       <div *ngFor="let product of productsInWishlist">
         <div class="row justify-content-center mb-3">
           <div class="col-md-12 col-xl-10">

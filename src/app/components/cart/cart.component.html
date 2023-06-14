@@ -4,6 +4,7 @@
     <h3>Products in cart:</h3>
   </div>
     <hr>
+    <h3 *ngIf="empty" style="text-align: center;"> Cart is empty</h3>
     <div *ngFor="let product of productsInCart">
       <div class="row justify-content-center mb-3">
         <div class="col-md-12 col-xl-10">
@@ -46,8 +47,8 @@
 
     <hr>
     <div class="col" style="float:right">
-      <h3>Total price: {{totalPrice}}.00 BAM</h3>
-      <button class="btn btn-outline-dark btn-lg float-sm" style="float:right" [routerLink]="['/finish-order']">Procede
+      <h3 *ngIf="!empty">Total price: {{totalPrice}}.00 BAM</h3>
+      <button class="btn btn-outline-dark btn-lg float-sm" style="float:right" [routerLink]="['/finish-order']" disabled="empty">Procede
         to checkout</button>
     </div>
   </div>

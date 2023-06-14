@@ -52,4 +52,8 @@ export class CartService {
     let email=localStorage.getItem('userEmail')
     return this.httpClient.get<any>('http://localhost:8080/user/cart/cart-product/'+email, { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token }) });
   }
+  getAllOrders(){
+    let token = localStorage.getItem('token');
+    return this.httpClient.get<any>('http://localhost:8080/order/orders', { headers: new HttpHeaders({ 'Authorization': 'Bearer ' + token }) });
+  }
 }

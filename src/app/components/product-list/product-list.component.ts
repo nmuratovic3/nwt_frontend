@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/CartService';
@@ -15,12 +15,15 @@ export class ProductListComponent implements OnInit {
   shoeList: Product[]=[];
   lista: Product[]
 
-  constructor(private productService: ProductService, private router: Router, private cartService:CartService) {
+  constructor(private productService: ProductService, private router: Router, private cartService:CartService, private route: ActivatedRoute) {
 
   }
   ngOnInit() {
     let route = this.router.url;
-    this.productService.getProductList().subscribe((data) => {
+    this.route.params.subscribe(params => {
+      const searchValue = params['search'];
+      console.log(searchValue)
+    });    this.productService.getProductList().subscribe((data) => {
         console.log(data)
         if (route === '/products') {
           this.shoeList = data

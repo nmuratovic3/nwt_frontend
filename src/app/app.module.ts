@@ -20,6 +20,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CreateProfileComponent } from './create-profile/create-profile.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot()
   
   ],
   providers: [],

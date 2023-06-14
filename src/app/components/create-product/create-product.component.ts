@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/ProductService';
 import { Product } from 'src/app/models/product';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
 import { Category } from 'src/app/models/category';
 
 @Component({
@@ -43,13 +43,20 @@ export class CreateProductComponent implements OnInit {
   // }
   ngOnInit(){
       this.productForm = this.formBuilder.group({
-        name: [''],
-        color: [''],
-        price:[],
-        sastav: [''],
+        name:new FormControl( '', [
+          Validators.required,
+          Validators.minLength(4)]),
+        color: ['', [
+          Validators.required]],
+        price:[, [
+          Validators.required]],
+        sastav: ['', [
+          Validators.required,
+          Validators.minLength(4)]],
         spol: [''],
         category: [],
-        photo:[''],
+        photo:['', [
+          Validators.required]],
         state:[[]]
       })
       this.productService.getCategories().subscribe(data=>{
